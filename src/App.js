@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ItemList from './ItemList';
+import DeleteItem from './DeleteItem';
 
 class App extends React.Component {
   state = {
@@ -48,15 +50,14 @@ class App extends React.Component {
           />
           <button disabled={this.inputIsEmpty()}>Add</button>
         </form>
-
-        <button onClick={this.deleteLastItem} disabled={this.noItemsFound()}>
-          Delete Last Item
-        </button>
-
+        <DeleteItem 
+          onDelete={this.deleteLastItem}
+          disabledBtn={this.inputIsEmpty()}
+        />
         <p className="items">Items</p>
-        <ol className="item-list">
-          {this.state.items.map((item, index) => <li key={index}>{item}</li>)}
-        </ol>
+        <ItemList 
+          items={this.state.items}
+        />
       </div>
     );
   }
