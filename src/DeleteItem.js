@@ -8,7 +8,9 @@ class DeleteItem extends React.Component{
 
   render(){
     return(
-      <button onClick={this.deleteLastItem} disabled={this.props.disabledBtn}>
+      <button 
+        onClick={this.deleteLastItem} 
+        disabled={this.props.disabledBtn}>
         Delete Last Item
       </button>
     );
